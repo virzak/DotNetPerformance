@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetPerformance", "DotNetPerformance\DotNetPerformance.csproj", "{3BC7A32F-94AC-43D1-B193-48B0D5C9FF3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPerformance", "DotNetPerformance\DotNetPerformance.csproj", "{3BC7A32F-94AC-43D1-B193-48B0D5C9FF3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetPerformance.Test", "DotNetPerformance.Test\DotNetPerformance.Test.csproj", "{E97C7922-3FA6-45A7-BEF3-74B58A279F9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPerformance.Test", "DotNetPerformance.Test\DotNetPerformance.Test.csproj", "{E97C7922-3FA6-45A7-BEF3-74B58A279F9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetPerformance.Benchmark", "DotNetPerformance.Benchmark\DotNetPerformance.Benchmark.csproj", "{2407AC25-ED60-4607-A82B-A0C020FF6F69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetPerformance.Benchmark", "DotNetPerformance.Benchmark\DotNetPerformance.Benchmark.csproj", "{2407AC25-ED60-4607-A82B-A0C020FF6F69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7822B933-8D09-46A9-8260-954F7D5C3AFC}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,6 +2,8 @@
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace DotNetPerformance.Benchmark
@@ -24,7 +26,7 @@ namespace DotNetPerformance.Benchmark
         [GlobalSetup]
         public void Setup()
         {
-            al = new ReadAsyncLoop(@"C:\Users\virzak\Videos\OAM.mp4");
+            al = new ReadAsyncLoop(Program.DefaultDocument);
         }
 
         [Benchmark]
@@ -49,6 +51,20 @@ namespace DotNetPerformance.Benchmark
 
     class Program
     {
+
+        static public string DefaultDocument => GetConfiguration()["Data:DefaultDocument"];
+
+        public static IConfiguration GetConfiguration()
+        {
+
+            var builder = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    //.AddJsonFile("appsettings.json")
+    .AddJsonFile("usersettings.json");
+
+            return builder.Build();
+        }
+
         static void Main(string[] args)
         {
             var summary = BenchmarkRunner.Run<LoadSamples>();

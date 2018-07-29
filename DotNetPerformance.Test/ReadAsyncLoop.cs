@@ -1,5 +1,7 @@
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -16,12 +18,26 @@ namespace DotNetPerformance.Test
             Output = output;
         }
 
+        static public string DefaultDocument => GetConfiguration()["Data:DefaultDocument"];
+
+        public static IConfiguration GetConfiguration()
+        {
+
+            var builder = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    //.AddJsonFile("appsettings.json")
+    .AddJsonFile("usersettings.json");
+
+            return builder.Build();
+        }
+
+
         [Fact]
         public async Task CompareRunningTimes()
         {
             var sw = new Stopwatch();
-            var asyncLoop = new DotNetPerformance.ReadAsyncLoop(@"C:\Users\virzak\Videos\OAM.mp4");
-            //await lol.CompareRunningTimes().ConfigureAwait(false);
+            var asyncLoop = new DotNetPerformance.ReadAsyncLoop(DefaultDocument);
+            //await asyncLoop.CompareRunningTimes().ConfigureAwait(false);
 
             sw.Restart();
             asyncLoop.ReadBytes();
